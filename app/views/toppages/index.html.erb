@@ -1,5 +1,29 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4 bg-light">
+      <%= form_with(model: @item) do |f| %>
+        <div class="mb-3">
+          <h2>購入品新規登録</h2>
+          <div class="mt-4">
+            <%= f.label :purchase_date,'購入日:' %>
+            <%= f.date_select :purchase_date, use_month_numbers: true, date_separator: '/', class: 'form-control', rows: 1 %>
+          </div>
+          <div class="mt-4">
+            <%= f.label :name,'品目名:' %>
+            <%= f.text_field :name, class: 'form-control', rows: 1 %>
+          </div>
+          <div class="mt-4">
+            <%= f.label :price,'金額:' %>
+            <%= f.number_field :price, class: 'form-control', rows: 1 %>
+          </div>
+        </div>
+        <%= f.submit '登録', class: 'btn btn-primary w-100' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'items/items', items: @items %>
+    </div>
+  </div>
 <% else %>
   <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
     <div class="text-center text-white">
