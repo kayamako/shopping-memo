@@ -22,7 +22,7 @@
       <% end %>
     </aside>
     <div class="col-sm-8">
-      <%= render 'items/items', items: @items %>
+      <%= render 'items/items', items: @items, count_items: @count_items, sum_prices: @sum_prices %>
     </div>
   </div>
 <% else %>

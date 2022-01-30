@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
       redirect_to root_url
     else
       @pagy, @items = pagy(current_user.items.order(id: :desc))
+      @count_items = count_items(current_user)
+      @sum_prices = sum_prices(current_user)
       flash.now[:danger] = '購入品の登録に失敗しました。'
       render 'toppages/index'
     end

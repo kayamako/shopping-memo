@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   end
   
   def count_items(user)
-    @count_items = user.items.count
+    return user.items.count
   end
   
   def sum_prices(user)
-    @sum_prices = user.items.sum(:price)
+    return user.items.sum(:price)
   end
   
 end
