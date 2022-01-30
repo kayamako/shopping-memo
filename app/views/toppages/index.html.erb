@@ -6,16 +6,16 @@
         <div class="mb-3">
           <h2>購入品新規登録</h2>
           <div class="mt-4">
-            <%= f.label :purchase_date,'購入日:' %>
-            <%= f.date_select :purchase_date, use_month_numbers: true, date_separator: '/', class: 'form-control', rows: 1 %>
+            <label for="item_purchase_date_1i">購入日:</label>
+            <%= f.date_select :purchase_date, use_month_numbers: true, date_separator: '/', class: 'form-control'%>
           </div>
           <div class="mt-4">
             <%= f.label :name,'品目名:' %>
-            <%= f.text_field :name, class: 'form-control', rows: 1 %>
+            <%= f.text_field :name, class: 'form-control'%>
           </div>
           <div class="mt-4">
             <%= f.label :price,'金額:' %>
-            <%= f.number_field :price, class: 'form-control', rows: 1 %>
+            <%= f.number_field :price, class: 'form-control'%>
           </div>
         </div>
         <%= f.submit '登録', class: 'btn btn-primary w-100' %>

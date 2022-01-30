@@ -2,12 +2,12 @@
   <h1>編集ページ</h1>
   <%= form_with(model: @item) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
-    <p><%= f.label :purchase_date,'購入日:' %></p>
-    <p><%= f.date_select :purchase_date, use_month_numbers: true, date_separator: '/', class: 'form-control', rows: 1 %></p>
+    <p><label for="item_purchase_date_1i">購入日:</label></p>
+    <p><%= f.date_select :purchase_date, use_month_numbers: true, date_separator: '/', class: 'form-control'%></p>
     <p><%= f.label :name,'品目名:' %></p>
-    <p><%= f.text_field :name, class: 'form-control', rows: 1 %></p>
+    <p><%= f.text_field :name, class: 'form-control'%></p>
     <p><%= f.label :price,'金額:' %></p>
-    <p><%= f.number_field :price, class: 'form-control', rows: 1 %></p>
+    <p><%= f.number_field :price, class: 'form-control'%></p>
     <%= f.submit '更新' %>
   <% end %>
 </div>
