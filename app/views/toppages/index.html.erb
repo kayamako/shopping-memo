@@ -2,6 +2,7 @@
   <div class="row">
     <aside class="col-sm-4 bg-light">
       <%= form_with(model: @item) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
         <div class="mb-3">
           <h2>購入品新規登録</h2>
           <div class="mt-4">

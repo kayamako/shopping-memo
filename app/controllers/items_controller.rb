@@ -5,18 +5,18 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.build(item_params)
     if @item.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = '購入品を登録しました。'
       redirect_to root_url
     else
       @pagy, @items = pagy(current_user.items.order(id: :desc))
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      flash.now[:danger] = '購入品の登録に失敗しました。'
       render 'toppages/index'
     end
   end
 
   def destroy
     @item.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = 'レコードを削除しました。'
     redirect_back(fallback_location: root_path)
   end
   
@@ -28,10 +28,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update(item_params)
-      flash[:success] = 'Item は正常に更新されました'
+      flash[:success] = '購入品情報は正常に更新されました。'
       redirect_to root_url
     else
-      flash.now[:danger] = 'Item は更新されませんでした'
+      flash.now[:danger] = '購入品情報は更新できませんでした。'
       render :edit
     end
   end
